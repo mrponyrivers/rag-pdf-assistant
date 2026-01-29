@@ -18,6 +18,8 @@ Upload a PDF → chunk text → embed with Sentence Transformers → retrieve to
 
 ## Setup
 ```bash
+...
+python -m streamlit run app.py
 cd /Users/ponyrivers/ai-journey/rag-pdf-assistant
 python -m venv .venv
 source .venv/bin/activate
