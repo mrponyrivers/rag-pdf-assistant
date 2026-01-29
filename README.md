@@ -18,6 +18,10 @@ Upload a PDF → chunk text → embed with Sentence Transformers → retrieve to
 
 ## Setup
 ```bash
+## Screenshots
+![PDF Loaded](assets/ui_loaded.png)
+
+![Results](assets/ui_results.png)
 cd /Users/ponyrivers/ai-journey/rag-pdf-assistant
 python -m venv .venv
 source .venv/bin/activate
