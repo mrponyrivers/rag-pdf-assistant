@@ -24,7 +24,5 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python -m streamlit run app.py
 ## Screenshots
-![PDF Loaded](assets/rag_pdf_Screenshot.png)
-
-![Results](assets/rag_pdf_answers_Screenshot.png)
-
+![PDF Loaded](assets/ui_loaded.png)
+![Results](assets/ui_results.png)
