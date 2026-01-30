@@ -1,4 +1,13 @@
 # RAG PDF Assistant (Local)
+## Quick start
+
+```bash
+git clone https://github.com/mrponyrivers/rag-pdf-assistant.git
+cd rag-pdf-assistant
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
 
 Local-only PDF Q&A assistant built with Streamlit.  
 Upload a PDF → chunk text → embed with Sentence Transformers → retrieve top sources with similarity scores → generate an offline “local synthesis” answer + page citations.
