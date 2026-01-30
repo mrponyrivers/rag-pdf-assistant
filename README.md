@@ -23,4 +23,11 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python -m streamlit run app.py
-```)
+## Setup
+```bash
+cd /Users/ponyrivers/ai-journey/rag-pdf-assistant
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
