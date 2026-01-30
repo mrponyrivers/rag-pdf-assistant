@@ -1,5 +1,4 @@
 # RAG PDF Assistant (Local)
-
 Local-only PDF Q&A assistant built with Streamlit.  
 Upload a PDF → chunk text → embed with Sentence Transformers → retrieve top sources with similarity scores → generate an offline “local synthesis” answer + page citations.
 
