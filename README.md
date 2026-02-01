@@ -68,3 +68,10 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python -m streamlit run app.py
 ```
+```md
+## Tech stack
+- Python + Streamlit (UI)
+- PDF text extraction
+- Sentence-Transformers embeddings
+- Similarity search + transparent sources (scores + page citations)
+```
