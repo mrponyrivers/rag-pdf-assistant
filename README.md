@@ -1,4 +1,10 @@
 # RAG PDF Assistant (Local)
+## Live demo
+https://mrponyrivers-rag-pdf-assistant.streamlit.app/
+
+### What to try
+- Upload any PDF and ask: **"What is this document about?"**
+- Ask: **"List the key points with page citations."**
 
 Local-only PDF Q&A assistant built with Streamlit.  
 Upload a PDF → chunk text → embed with Sentence Transformers → retrieve top sources with similarity scores → generate an offline “local synthesis” answer + page citations.
