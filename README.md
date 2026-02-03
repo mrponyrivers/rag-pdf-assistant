@@ -1,4 +1,5 @@
 # RAG PDF Assistant (Local)
+Instant demo: click 📎 Load sample PDF (no upload required).
 ## Live demo
 https://mrponyrivers-rag-pdf-assistant.streamlit.app/
 
