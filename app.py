@@ -2,6 +2,7 @@ import io
 import hashlib
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 from typing import List, Dict, Tuple
 
 import numpy as np
@@ -227,6 +228,8 @@ st.set_page_config(page_title="RAG PDF Assistant (Local)", page_icon="📄", lay
 st.title("📄 RAG PDF Assistant (Local)")
 st.caption("Upload a PDF → ask questions → get local answers with cited pages. (No FAISS, no external LLM.)")
 
+SAMPLE_PDF_PATH = Path("assets") / "sample.pdf"
+
 # Session state defaults
 if "history" not in st.session_state:
     st.session_state.history = []
@@ -276,14 +279,30 @@ with st.sidebar:
 
     st.caption("Tip: If results feel scattered, turn on **Unique pages only** or lower **Max chunks/page**.")
 
-uploaded = st.file_uploader("Upload a PDF", type=["pdf"])
-if not uploaded:
-    st.info("Upload a PDF to begin.")
-    st.stop()
+# --- Upload OR load sample ---
+colA, colB = st.columns([1, 2])
+with colA:
+    use_sample = st.button("📎 Load sample PDF")
+with colB:
+    uploaded = st.file_uploader("Upload a PDF", type=["pdf"])
 
-pdf_bytes = uploaded.getvalue()
+if use_sample:
+    if not SAMPLE_PDF_PATH.exists():
+        st.error("Sample PDF missing. Add it at assets/sample.pdf")
+        st.stop()
+    # mimic uploaded file behavior
+    with open(SAMPLE_PDF_PATH, "rb") as f:
+        pdf_bytes = f.read()
+    uploaded_name = "sample.pdf"
+else:
+    if not uploaded:
+        st.info("Upload a PDF to begin, or click **📎 Load sample PDF**.")
+        st.stop()
+    pdf_bytes = uploaded.getvalue()
+    uploaded_name = getattr(uploaded, "name", "uploaded.pdf")
+
 pdf_id = file_hash(pdf_bytes)
-pdf_name = getattr(uploaded, "name", "uploaded.pdf")
+pdf_name = uploaded_name
 
 # Determine rebuild
 settings_key = (model_name, chunk_size, overlap)
@@ -503,6 +522,3 @@ else:
                         )
                         st.write(s["text"])
                         st.divider()
-
-
- 
